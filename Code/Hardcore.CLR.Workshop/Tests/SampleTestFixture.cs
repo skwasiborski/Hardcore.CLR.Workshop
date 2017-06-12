@@ -1,4 +1,5 @@
 using ILRewriter;
+using ILRewriter.Extensions;
 using NUnit.Framework;
 using SampleLibrary;
 
@@ -12,6 +13,9 @@ namespace Tests
         public void Should_modify_console_writeline_string()
         {
             var modifiedAssembly = RewriteAssemblyOf<SampleClassWithInstanceMethod>();
+
+            modifiedAssembly.Write(@"C:\Users\skwalocal\Source\Repos\Hardcore.CLR.Workshop\Code\Hardcore.CLR.Workshop\Tests\bin\Debug\testassembly.dll");
+
             var modifiedType = CreateModifiedType(modifiedAssembly, nameof(SampleClassWithInstanceMethod));
 
             

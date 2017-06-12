@@ -46,6 +46,15 @@ namespace ILRewriter.Extensions
             return result;
         }
 
+        public static VariableDefinition AddLocal(this MethodDefinition methodDef, TypeReference localType)
+        {
+            var result = new VariableDefinition(localType);
+
+            methodDef.Body.Variables.Add(result);
+
+            return result;
+        }
+
         public static VariableDefinition AddLocal(this MethodDefinition method, string variableName, Type variableType)
         {
             var module = method.DeclaringType.Module;
